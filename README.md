@@ -12,13 +12,6 @@ A continuación se describe la estructura del proyecto:
 - **template.yaml** - Template que define los recursos AWS de la aplicación
 - **localEnvironment.json** - Permite el despliegue en local de la aplicación sobreescribiendo el endpoint de dynamodb para que apunte contra el docker de dynamo
 
-## Despliegue manual de la aplicación SAM en AWS
-
-Para utilizar SAM CLI se necesitan las siguientes herramientas:
-
-* SAM CLI - [Install the SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
-* [Python 3 installed](https://www.python.org/downloads/) - Se ha testeado con Python 3.7
-* Docker - [Install Docker community edition](https://hub.docker.com/search/?type=edition&offering=community)
 
 ### Para **construir** la aplicación se deberá ejecutar el siguiente comando:
 ```bash
@@ -86,6 +79,14 @@ sam build # también se puede usar sam build --use-container si se dan problemas
 ## Levantar la api en local, en el puerto 8080, dentro de la red de docker sam
 sam local start-api --port 8081 --env-vars localEnvironment.json --docker-network sam
 ```
+
+## Despliegue manual de la aplicación SAM en AWS
+
+Para utilizar SAM CLI se necesitan las siguientes herramientas:
+
+* SAM CLI - [Install the SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
+* [Python 3 installed](https://www.python.org/downloads/) - Se ha testeado con Python 3.7
+* Docker - [Install Docker community edition](https://hub.docker.com/search/?type=edition&offering=community)
 
 ## Consultar logs de las funciones lambda
 
