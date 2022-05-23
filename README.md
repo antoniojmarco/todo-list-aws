@@ -139,7 +139,7 @@ pipelines/PIPELINE-FULL-STAGING/unit_test.sh
 pipelines/PIPELINE-FULL-STAGING/static_test.sh
 
 # Pruebas de integración
-pipelines/common-steps/integration.sh
+pipelines/common-steps/integration.sh "https://fx9dl6jnpg.execute-api.us-east-1.amazonaws.com/Prod"
 ```
 
 ## Pipelines
