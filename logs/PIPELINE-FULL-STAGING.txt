@@ -573,3 +573,67 @@ voclabs:~/todo-list-aws (feature) $ pipelines/common-steps/integration.sh
 platform linux -- Python 3.7.5, pytest-7.1.2, pluggy-1.0.0
 rootdir: /home/ubuntu/todo-list-aws, configfile: pytest.ini
 collected 5 items 
+
+
+
+voclabs:~/todo-list-aws (feature) $ curl https://fx9dl6jnpg.execute-api.us-east-1.amazonaws.com/Prod/todos
+
+[]voclabs:~/todo-list-aws (feature) $ 
+voclabs:~/todo-list-aws (feature) $ 
+voclabs:~/todo-list-aws (feature) $ pipelines/common-steps/integration.sh "https://fx9dl6jnpg.execute-api.us-east-1.amazonaws.com/Prod"
++ export BASE_URL=https://fx9dl6jnpg.execute-api.us-east-1.amazonaws.com/Prod
++ BASE_URL=https://fx9dl6jnpg.execute-api.us-east-1.amazonaws.com/Prod
++ pytest -s test/integration/todoApiTest.py
+============================================ test session starts =============================================
+platform linux -- Python 3.7.5, pytest-7.1.2, pluggy-1.0.0
+rootdir: /home/ubuntu/todo-list-aws, configfile: pytest.ini
+collected 5 items                                                                                            
+
+
+
+
+test/integration/todoApiTest.py ---------------------------------------
+Starting - integration test Add TODO
+Response Add Todo: {"id": "22b43b3a-da7c-11ec-b479-3a3b1f16a508", "text": "Integration text example", "checked": false, "createdAt": "1653298723.3262768", "updatedAt": "1653298723.3262768"}
+ID todo:22b43b3a-da7c-11ec-b479-3a3b1f16a508
+End - integration test Add TODO
+.---------------------------------------
+Starting - integration test Delete TODO
+Response Add todo: {"id": "24594624-da7c-11ec-b479-3a3b1f16a508", "text": "Integration text example - Initial", "checked": false, "createdAt": "1653298726.2271333", "updatedAt": "1653298726.2271333"}
+ID todo:24594624-da7c-11ec-b479-3a3b1f16a508
+Response Delete Todo:<Response [200]>
+Response Get Todo https://fx9dl6jnpg.execute-api.us-east-1.amazonaws.com/Prod/todos/24594624-da7c-11ec-b479-3a3b1f16a508: <Response [404]>
+End - integration test Delete TODO
+.---------------------------------------
+Starting - integration test Get TODO
+Response Add Todo: {'statusCode': 200, 'body': '{"id": "2619f63e-da7c-11ec-b479-3a3b1f16a508", "text": "Integration text example - GET", "checked": false, "createdAt": "1653298729.1676679", "updatedAt": "1653298729.1676679"}'}
+ID todo:2619f63e-da7c-11ec-b479-3a3b1f16a508
+Response Get Todo: {'checked': False, 'createdAt': '1653298729.1676679', 'text': 'Integration text example - GET', 'id': '2619f63e-da7c-11ec-b479-3a3b1f16a508', 'updatedAt': '1653298729.1676679'}
+End - integration test Get TODO
+.---------------------------------------
+Starting - integration test List TODO
+Response Add Todo: {'statusCode': 200, 'body': '{"id": "2696bfde-da7c-11ec-b479-3a3b1f16a508", "text": "Integration text example", "checked": false, "createdAt": "1653298729.9293122", "updatedAt": "1653298729.9293122"}'}
+ID todo:2696bfde-da7c-11ec-b479-3a3b1f16a508
+Response List Todo:[{'checked': False, 'createdAt': '1653298729.9293122', 'text': 'Integration text example', 'id': '2696bfde-da7c-11ec-b479-3a3b1f16a508', 'updatedAt': '1653298729.9293122'}]
+End - integration test List TODO
+.---------------------------------------
+Starting - integration test Update TODO
+Response Add todo: {"id": "28024ba4-da7c-11ec-b479-3a3b1f16a508", "text": "Integration text example - Initial", "checked": false, "createdAt": "1653298732.3680093", "updatedAt": "1653298732.3680093"}
+ID todo:28024ba4-da7c-11ec-b479-3a3b1f16a508
+Response Update todo: {'checked': 'true', 'createdAt': '1653298732.3680093', 'text': 'Integration text example - Modified', 'id': '28024ba4-da7c-11ec-b479-3a3b1f16a508', 'updatedAt': 1653298734577}
+Response Get Todo: {'checked': 'true', 'createdAt': '1653298732.3680093', 'text': 'Integration text example - Modified', 'id': '28024ba4-da7c-11ec-b479-3a3b1f16a508', 'updatedAt': 1653298734577}
+End - integration test Update TODO
+.
+
+============================================== warnings summary ==============================================
+todo-list-aws/lib/python3.7/site-packages/_pytest/cacheprovider.py:433
+  /home/ubuntu/todo-list-aws/todo-list-aws/lib/python3.7/site-packages/_pytest/cacheprovider.py:433: PytestCacheWarning: could not create cache path /home/ubuntu/todo-list-aws/.pytest_cache/v/cache/nodeids
+    config.cache.set("cache/nodeids", sorted(self.cached_nodeids))
+
+todo-list-aws/lib/python3.7/site-packages/_pytest/stepwise.py:52
+  /home/ubuntu/todo-list-aws/todo-list-aws/lib/python3.7/site-packages/_pytest/stepwise.py:52: PytestCacheWarning: could not create cache path /home/ubuntu/todo-list-aws/.pytest_cache/v/cache/stepwise
+    session.config.cache.set(STEPWISE_CACHE_DIR, [])
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================================= 5 passed, 2 warnings in 14.37s =======================================
+voclabs:~/todo-list-aws (feature) $ 
