@@ -280,3 +280,296 @@ OK
 Name              Stmts   Miss  Cover
 -------------------------------------
 src/todoList.py      64     15    77%
+
+
+voclabs:~/todo-list-aws (feature) $ sudo pipelines/PIPELINE-FULL-STAGING/unit_test.sh
+++ pwd
++ export PYTHONPATH=:/home/ubuntu/todo-list-aws
++ PYTHONPATH=:/home/ubuntu/todo-list-aws
++ echo 'PYTHONPATH: :/home/ubuntu/todo-list-aws'
+PYTHONPATH: :/home/ubuntu/todo-list-aws
++ export DYNAMODB_TABLE=todoUnitTestsTable
++ DYNAMODB_TABLE=todoUnitTestsTable
++ python test/unit/TestToDo.py
+/home/ubuntu/todo-list-aws/todo-list-aws/lib/python3.7/site-packages/moto/__init__.py:27: UserWarning: Module mock_dynamodb2 has been deprecated, and will be removed in a later release. Please use mock_dynamodb instead. See https://github.com/spulec/moto/issues/4526 for more information.
+  f"Module {used} has been deprecated, and will be removed in a later release. Please use {recommended} instead. "
+---------------------
+Start: setUp
+Creating Table with name:todoUnitTestsTable
+End: setUp
+---------------------
+Start: test_delete_todo
+Table name:todoUnitTestsTable
+Response PutItem{'statusCode': 200, 'body': '{"id": "5461c2ae-da79-11ec-8be8-127dcc201479", "text": "Aprender DevOps y Cloud en la UNIR", "checked": false, "createdAt": "1653297518.316572", "updatedAt": "1653297518.316572"}'}
+Id item:5461c2ae-da79-11ec-8be8-127dcc201479
+Item deleted succesfully
+End: test_delete_todo
+---------------------
+Start: tearDown
+Table deleted succesfully
+End: tearDown
+.---------------------
+Start: setUp
+Creating Table with name:todoUnitTestsTable
+End: setUp
+---------------------
+Start: test_delete_todo_error
+End: test_delete_todo_error
+---------------------
+Start: tearDown
+Table deleted succesfully
+End: tearDown
+.---------------------
+Start: setUp
+Creating Table with name:todoUnitTestsTable
+End: setUp
+---------------------
+Start: test_get_todo
+Table name:todoUnitTestsTable
+Response put_item:{'statusCode': 200, 'body': '{"id": "5461c2af-da79-11ec-8be8-127dcc201479", "text": "Aprender DevOps y Cloud en la UNIR", "checked": false, "createdAt": "1653297518.5012753", "updatedAt": "1653297518.5012753"}'}
+Id item:5461c2af-da79-11ec-8be8-127dcc201479
+Result getItem:{'Item': {'id': '5461c2af-da79-11ec-8be8-127dcc201479', 'text': 'Aprender DevOps y Cloud en la UNIR', 'checked': False, 'createdAt': '1653297518.5012753', 'updatedAt': '1653297518.5012753'}, 'ResponseMetadata': {'RequestId': 'FTY7X5I1A2XYEIPDBFZOXG8NWKLWOOASH8T3OC5AJALM8WLX8ZTQ', 'HTTPStatusCode': 200, 'HTTPHeaders': {'server': 'amazon.com', 'x-amzn-requestid': 'FTY7X5I1A2XYEIPDBFZOXG8NWKLWOOASH8T3OC5AJALM8WLX8ZTQ', 'x-amz-crc32': '221906820'}, 'RetryAttempts': 0}}
+Response Get:{'id': '5461c2af-da79-11ec-8be8-127dcc201479', 'text': 'Aprender DevOps y Cloud en la UNIR', 'checked': False, 'createdAt': '1653297518.5012753', 'updatedAt': '1653297518.5012753'}
+End: test_get_todo
+---------------------
+Start: tearDown
+Table deleted succesfully
+End: tearDown
+.---------------------
+Start: setUp
+Creating Table with name:todoUnitTestsTable
+End: setUp
+---------------------
+Start: test_list_todo
+Table name:todoUnitTestsTable
+Response GetItems[{'id': '5461c2b0-da79-11ec-8be8-127dcc201479', 'text': 'Aprender DevOps y Cloud en la UNIR', 'checked': False, 'createdAt': '1653297518.5865972', 'updatedAt': '1653297518.5865972'}]
+End: test_list_todo
+---------------------
+Start: tearDown
+Table deleted succesfully
+End: tearDown
+.---------------------
+Start: setUp
+Creating Table with name:todoUnitTestsTable
+End: setUp
+---------------------
+Start: test_put_todo
+Table name:todoUnitTestsTable
+Response put_item:{'statusCode': 200, 'body': '{"id": "5461c2b1-da79-11ec-8be8-127dcc201479", "text": "Aprender DevOps y Cloud en la UNIR", "checked": false, "createdAt": "1653297518.7372139", "updatedAt": "1653297518.7372139"}'}
+End: test_put_todo
+---------------------
+Start: tearDown
+Table deleted succesfully
+End: tearDown
+.---------------------
+Start: setUp
+Creating Table with name:todoUnitTestsTable
+End: setUp
+---------------------
+Start: test_put_todo_error
+Table name:todoUnitTestsTable
+Table name:todoUnitTestsTable
+End: test_put_todo_error
+---------------------
+Start: tearDown
+Table deleted succesfully
+End: tearDown
+.---------------------
+Start: setUp
+Creating Table with name:todoUnitTestsTable
+End: setUp
+---------------------
+Start: test_table_exists
+Table name:todoUnitTestsTable
+End: test_table_exists
+---------------------
+Start: tearDown
+Table deleted succesfully
+End: tearDown
+.---------------------
+Start: setUp
+Creating Table with name:todoUnitTestsTable
+End: setUp
+---------------------
+Start: test_update_todo
+Table name:todoUnitTestsTable
+Response PutItem{'statusCode': 200, 'body': '{"id": "5461c2b4-da79-11ec-8be8-127dcc201479", "text": "Aprender DevOps y Cloud en la UNIR", "checked": false, "createdAt": "1653297518.9618068", "updatedAt": "1653297518.9618068"}'}
+Id item:5461c2b4-da79-11ec-8be8-127dcc201479
+Result Update Item:{'id': '5461c2b4-da79-11ec-8be8-127dcc201479', 'text': 'Aprender más cosas que DevOps y Cloud en la UNIR', 'checked': 'false', 'createdAt': '1653297518.9618068', 'updatedAt': Decimal('1653297518966')}
+End: test_update_todo
+---------------------
+Start: tearDown
+Table deleted succesfully
+End: tearDown
+.---------------------
+Start: setUp
+Creating Table with name:todoUnitTestsTable
+End: setUp
+---------------------
+Start: atest_update_todo_error
+Table name:todoUnitTestsTable
+Response PutItem{'statusCode': 200, 'body': '{"id": "5461c2b5-da79-11ec-8be8-127dcc201479", "text": "Aprender DevOps y Cloud en la UNIR", "checked": false, "createdAt": "1653297519.0458965", "updatedAt": "1653297519.0458965"}'}
+End: atest_update_todo_error
+---------------------
+Start: tearDown
+Table deleted succesfully
+End: tearDown
+.
+----------------------------------------------------------------------
+Ran 9 tests in 0.841s
+
+OK
++ pip show coverage
+WARNING: The directory '/home/ubuntu/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Name: coverage
+Version: 4.5.4
+Summary: Code coverage measurement for Python
+Home-page: https://github.com/nedbat/coveragepy
+Author: Ned Batchelder and 100 others
+Author-email: ned@nedbatchelder.com
+License: Apache 2.0
+Location: /home/ubuntu/todo-list-aws/todo-list-aws/lib/python3.7/site-packages
+Requires: 
+Required-by: 
++ coverage run --include=src/todoList.py test/unit/TestToDo.py
+/home/ubuntu/todo-list-aws/todo-list-aws/lib/python3.7/site-packages/moto/__init__.py:27: UserWarning: Module mock_dynamodb2 has been deprecated, and will be removed in a later release. Please use mock_dynamodb instead. See https://github.com/spulec/moto/issues/4526 for more information.
+  f"Module {used} has been deprecated, and will be removed in a later release. Please use {recommended} instead. "
+---------------------
+Start: setUp
+Creating Table with name:todoUnitTestsTable
+End: setUp
+---------------------
+Start: test_delete_todo
+Table name:todoUnitTestsTable
+Response PutItem{'statusCode': 200, 'body': '{"id": "55976caa-da79-11ec-8be8-127dcc201479", "text": "Aprender DevOps y Cloud en la UNIR", "checked": false, "createdAt": "1653297520.3456824", "updatedAt": "1653297520.3456824"}'}
+Id item:55976caa-da79-11ec-8be8-127dcc201479
+Item deleted succesfully
+End: test_delete_todo
+---------------------
+Start: tearDown
+Table deleted succesfully
+End: tearDown
+.---------------------
+Start: setUp
+Creating Table with name:todoUnitTestsTable
+End: setUp
+---------------------
+Start: test_delete_todo_error
+End: test_delete_todo_error
+---------------------
+Start: tearDown
+Table deleted succesfully
+End: tearDown
+.---------------------
+Start: setUp
+Creating Table with name:todoUnitTestsTable
+End: setUp
+---------------------
+Start: test_get_todo
+Table name:todoUnitTestsTable
+Response put_item:{'statusCode': 200, 'body': '{"id": "55976cab-da79-11ec-8be8-127dcc201479", "text": "Aprender DevOps y Cloud en la UNIR", "checked": false, "createdAt": "1653297520.5556507", "updatedAt": "1653297520.5556507"}'}
+Id item:55976cab-da79-11ec-8be8-127dcc201479
+Result getItem:{'Item': {'id': '55976cab-da79-11ec-8be8-127dcc201479', 'text': 'Aprender DevOps y Cloud en la UNIR', 'checked': False, 'createdAt': '1653297520.5556507', 'updatedAt': '1653297520.5556507'}, 'ResponseMetadata': {'RequestId': 'YYNPFKYULNI8NJUUQX87LFLIZZBSHKAWVZPXY0CL1IYBIYVYJDG8', 'HTTPStatusCode': 200, 'HTTPHeaders': {'server': 'amazon.com', 'x-amzn-requestid': 'YYNPFKYULNI8NJUUQX87LFLIZZBSHKAWVZPXY0CL1IYBIYVYJDG8', 'x-amz-crc32': '346340377'}, 'RetryAttempts': 0}}
+Response Get:{'id': '55976cab-da79-11ec-8be8-127dcc201479', 'text': 'Aprender DevOps y Cloud en la UNIR', 'checked': False, 'createdAt': '1653297520.5556507', 'updatedAt': '1653297520.5556507'}
+End: test_get_todo
+---------------------
+Start: tearDown
+Table deleted succesfully
+End: tearDown
+.---------------------
+Start: setUp
+Creating Table with name:todoUnitTestsTable
+End: setUp
+---------------------
+Start: test_list_todo
+Table name:todoUnitTestsTable
+Response GetItems[{'id': '55976cac-da79-11ec-8be8-127dcc201479', 'text': 'Aprender DevOps y Cloud en la UNIR', 'checked': False, 'createdAt': '1653297520.717617', 'updatedAt': '1653297520.717617'}]
+End: test_list_todo
+---------------------
+Start: tearDown
+Table deleted succesfully
+End: tearDown
+.---------------------
+Start: setUp
+Creating Table with name:todoUnitTestsTable
+End: setUp
+---------------------
+Start: test_put_todo
+Table name:todoUnitTestsTable
+Response put_item:{'statusCode': 200, 'body': '{"id": "55976cad-da79-11ec-8be8-127dcc201479", "text": "Aprender DevOps y Cloud en la UNIR", "checked": false, "createdAt": "1653297520.8162367", "updatedAt": "1653297520.8162367"}'}
+End: test_put_todo
+---------------------
+Start: tearDown
+Table deleted succesfully
+End: tearDown
+.---------------------
+Start: setUp
+Creating Table with name:todoUnitTestsTable
+End: setUp
+---------------------
+Start: test_put_todo_error
+Table name:todoUnitTestsTable
+Table name:todoUnitTestsTable
+End: test_put_todo_error
+---------------------
+Start: tearDown
+Table deleted succesfully
+End: tearDown
+.---------------------
+Start: setUp
+Creating Table with name:todoUnitTestsTable
+End: setUp
+---------------------
+Start: test_table_exists
+Table name:todoUnitTestsTable
+End: test_table_exists
+---------------------
+Start: tearDown
+Table deleted succesfully
+End: tearDown
+.---------------------
+Start: setUp
+Creating Table with name:todoUnitTestsTable
+End: setUp
+---------------------
+Start: test_update_todo
+Table name:todoUnitTestsTable
+Response PutItem{'statusCode': 200, 'body': '{"id": "55976cb0-da79-11ec-8be8-127dcc201479", "text": "Aprender DevOps y Cloud en la UNIR", "checked": false, "createdAt": "1653297521.1014082", "updatedAt": "1653297521.1014082"}'}
+Id item:55976cb0-da79-11ec-8be8-127dcc201479
+Result Update Item:{'id': '55976cb0-da79-11ec-8be8-127dcc201479', 'text': 'Aprender más cosas que DevOps y Cloud en la UNIR', 'checked': 'false', 'createdAt': '1653297521.1014082', 'updatedAt': Decimal('1653297521105')}
+End: test_update_todo
+---------------------
+Start: tearDown
+Table deleted succesfully
+End: tearDown
+.---------------------
+Start: setUp
+Creating Table with name:todoUnitTestsTable
+End: setUp
+---------------------
+Start: atest_update_todo_error
+Table name:todoUnitTestsTable
+Response PutItem{'statusCode': 200, 'body': '{"id": "55976cb1-da79-11ec-8be8-127dcc201479", "text": "Aprender DevOps y Cloud en la UNIR", "checked": false, "createdAt": "1653297521.2078018", "updatedAt": "1653297521.2078018"}'}
+End: atest_update_todo_error
+---------------------
+Start: tearDown
+Table deleted succesfully
+End: tearDown
+.
+----------------------------------------------------------------------
+Ran 9 tests in 1.078s
+
+OK
++ coverage report
+Name              Stmts   Miss  Cover
+-------------------------------------
+src/todoList.py      64     15    77%
++ coverage xml
+voclabs:~/todo-list-aws (feature) $ pipelines/common-steps/integration.sh
++ export BASE_URL=
++ BASE_URL=
++ pytest -s test/integration/todoApiTest.py
+============================================ test session starts =============================================
+platform linux -- Python 3.7.5, pytest-7.1.2, pluggy-1.0.0
+rootdir: /home/ubuntu/todo-list-aws, configfile: pytest.ini
+collected 5 items 
