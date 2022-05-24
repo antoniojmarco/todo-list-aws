@@ -1,5 +1,5 @@
 #!/bin/bash
-aws
+
 source todo-list-aws/bin/activate
 set -x
 
@@ -17,12 +17,12 @@ then
     exit 1
 fi
 
-flake8 ./src/*.py
+flake8 src/*.py
 if [[ $? -ne 0 ]]
 then
     exit 1
 fi
-bandit ./src/*.py
+bandit src/*.py
 if [[ $? -ne 0 ]]
 then
     exit 1
