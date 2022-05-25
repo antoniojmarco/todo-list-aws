@@ -10,19 +10,22 @@ Running on Jenkins in /var/lib/jenkins/workspace/PIPELINE-FULL-CD
 Selected Git installation does not exist. Using Default
 The recommended git tool is: NONE
 No credentials specified
- > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/PIPELINE-FULL-CD/.git # timeout=10
-Fetching changes from the remote Git repository
- > git config remote.origin.url https://github.com/antoniojmarco/todo-list-aws.git # timeout=10
+Cloning the remote Git repository
+Cloning repository https://github.com/antoniojmarco/todo-list-aws.git
+ > git init /var/lib/jenkins/workspace/PIPELINE-FULL-CD # timeout=10
 Fetching upstream changes from https://github.com/antoniojmarco/todo-list-aws.git
  > git --version # timeout=10
  > git --version # 'git version 2.17.1'
  > git fetch --tags --progress -- https://github.com/antoniojmarco/todo-list-aws.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git config remote.origin.url https://github.com/antoniojmarco/todo-list-aws.git # timeout=10
+ > git config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
  > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
 Checking out Revision 93861d3c4f195596cfd5f1f074f10210278dab78 (refs/remotes/origin/main)
  > git config core.sparsecheckout # timeout=10
  > git checkout -f 93861d3c4f195596cfd5f1f074f10210278dab78 # timeout=10
 Commit message: "Update s3 buckets"
-First time build. Skipping changelog.
+ > git rev-list --no-walk 93861d3c4f195596cfd5f1f074f10210278dab78 # timeout=10
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] withEnv
@@ -33,10 +36,10 @@ First time build. Skipping changelog.
 Starting staging job
 [Pipeline] build (Building PIPELINE-FULL-STAGING)
 Scheduling project: PIPELINE-FULL-STAGING
-Starting building: PIPELINE-FULL-STAGING #8
+Starting building: PIPELINE-FULL-STAGING #11
 [Pipeline] }
 [Pipeline] // stage
-[Pipeline] stage
+[Pipeline] stage (hide)
 [Pipeline] { (Merge)
 [Pipeline] sh (Merging code to master)
 + set -x
