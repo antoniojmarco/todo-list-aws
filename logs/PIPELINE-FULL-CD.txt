@@ -1,0 +1,77 @@
+Started by user Antonio Jose Marco Perez
+Obtained pipelines/PIPELINE-FULL-CD/Jenkinsfile from git https://github.com/antoniojmarco/todo-list-aws.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/PIPELINE-FULL-CD
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/PIPELINE-FULL-CD/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/antoniojmarco/todo-list-aws.git # timeout=10
+Fetching upstream changes from https://github.com/antoniojmarco/todo-list-aws.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.17.1'
+ > git fetch --tags --progress -- https://github.com/antoniojmarco/todo-list-aws.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 93861d3c4f195596cfd5f1f074f10210278dab78 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 93861d3c4f195596cfd5f1f074f10210278dab78 # timeout=10
+Commit message: "Update s3 buckets"
+First time build. Skipping changelog.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Staging)
+[Pipeline] echo
+Starting staging job
+[Pipeline] build (Building PIPELINE-FULL-STAGING)
+Scheduling project: PIPELINE-FULL-STAGING
+Starting building: PIPELINE-FULL-STAGING #8
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Merge)
+[Pipeline] sh (Merging code to master)
++ set -x
++ git branch -a
+* (HEAD detached at 93861d3)
+  remotes/origin/develop
+  remotes/origin/feature
+  remotes/origin/main
++ git checkout -b develop origin/develop
+Previous HEAD position was 93861d3 Update s3 buckets
+Switched to a new branch 'develop'
+Branch 'develop' set up to track remote branch 'develop' from 'origin'.
++ git checkout -b master origin/master
+fatal: 'origin/master' is not a commit and a branch 'master' cannot be created from it
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Production)
+Stage "Production" skipped due to earlier failure(s)
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+Clean env: delete dir
+[Pipeline] cleanWs
+[WS-CLEANUP] Deleting project workspace...
+[WS-CLEANUP] Deferred wipeout is used...
+[WS-CLEANUP] done
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+ERROR: script returned exit code 128
+Finished: FAILURE
