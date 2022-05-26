@@ -82,7 +82,7 @@ Resources:
   TranslateFunction:
     Type: AWS::Serverless::Function 
     Properties:
-      CodeUri: todos/
+      CodeUri: src/
       Handler: translate.translate
       Runtime: python3.7
       Policies:
@@ -158,4 +158,4 @@ Outputs:
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/todos/{id}"
   TranslateTodoFunction:
       Description: "Translate Lambda Function ARN"
-      Value: !GetAtt TranslateFunction.Arn
+      Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/todos/{id}/{lang}"
