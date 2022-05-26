@@ -86,7 +86,6 @@ Resources:
       Role: !Sub "arn:aws:iam::${AWS::AccountId}:role/LabRole"
       Handler: translate.translate
       Runtime: python3.7
-   
       Events:
         API:
           Type: Api 
