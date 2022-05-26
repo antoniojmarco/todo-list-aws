@@ -7,6 +7,30 @@ import functools
 from botocore.exceptions import ClientError
 
 
+# Obtiene la traducción del texto de la propiedad "text" según el id indicado
+def getTranslate(id, lang):
+    apitranslate = boto3.client('translate')
+
+    try:
+        response = table.get_item(
+            Key={
+                'id': id
+            }
+        )
+        text = response['Item']['text']
+        translatedText = apitranslate.translate_text(
+            Text=text,
+            SourceLanguageCode='auto',
+            TargetLanguageCode=lang
+        )
+
+        response['Item']['text'] = translatedText['TranslatedText']
+    except ClientError as e:
+        print(e.response['Error']['Message'])
+    else:
+        return response
+
+
 def get_table(dynamodb=None):
     if not dynamodb:
         URL = os.environ['ENDPOINT_OVERRIDE']
