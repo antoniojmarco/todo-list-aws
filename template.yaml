@@ -83,21 +83,10 @@ Resources:
     Type: AWS::Serverless::Function 
     Properties:
       CodeUri: src/
+      Role: !Sub "arn:aws:iam::${AWS::AccountId}:role/LabRole"
       Handler: translate.translate
       Runtime: python3.7
-      Policies:
-        - Statement:
-            - Effect: Allow
-              Action: 
-              - dynamodb:GetItem
-              Resource: "*"
-              
-        - Statement:
-            - Effect: Allow
-              Action: 
-              - translate:TranslateText
-              - comprehend:DetectDominantLanguage
-              Resource: "*"
+   
       Events:
         API:
           Type: Api 
