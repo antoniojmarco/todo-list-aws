@@ -6,6 +6,14 @@ import json
 import functools
 from botocore.exceptions import ClientError
 
+# Pruebas en local
+# dynamodb = boto3.resource('dynamodb',
+# endpoint_url='http://172.18.0.1:8000')
+
+# Pruebas AWS
+dynamodb = boto3.resource('dynamodb')
+table = dynamodb.Table(os.environ['DYNAMODB_TABLE'])
+
 
 # Obtiene la traducción del texto de la propiedad "text" según el id indicado
 def getTranslate(id, lang):
