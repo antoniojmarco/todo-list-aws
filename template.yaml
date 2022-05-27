@@ -146,5 +146,4 @@ Outputs:
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/todos/{id}"
   TranslateTodoFunction:
     Description: "API Gateway endpoint URL for ${opt:stage} stage for Translate TODO"
-      Value: !GetAtt TranslateFunction.Arn
-    #Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/todos/{id}/{lang}"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/todos/{id}/{lang}"
