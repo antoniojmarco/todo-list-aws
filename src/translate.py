@@ -3,7 +3,7 @@ import todoList
 import boto3
 import decimalencoder
 
-from todoList import getTranslate
+#from todoList import getTranslate
 
 comprehend = boto3.client('comprehend')
 
