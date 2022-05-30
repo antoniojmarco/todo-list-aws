@@ -201,8 +201,8 @@ class TestDatabaseFunctions(unittest.TestCase):
         print ('End: test_delete_todo_error')
 
  def test_translate_todo(self):
-        from todoTable import getTranslate
-        from todoTable import createItem
+        from todoList import getTranslate
+        from todoList import createItem
         createItem(self.text, self.uuid)
 
         self.assertEqual(
