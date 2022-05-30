@@ -200,7 +200,20 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.assertRaises(TypeError, delete_item("", self.dynamodb))
         print ('End: test_delete_todo_error')
 
+ def test_translate_todo(self):
+        from todoTable import getTranslate
+        from todoTable import createItem
+        createItem(self.text, self.uuid)
 
+        self.assertEqual(
+            200,
+            getTranslate(self.uuid, 'fr')['ResponseMetadata']['HTTPStatusCode']
+        )
+
+        self.assertEqual(
+            self.uuid,
+            getTranslate(self.uuid, 'fr')['Item']['id']
+        )
 
 if __name__ == '__main__':
     unittest.main()
