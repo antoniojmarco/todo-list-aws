@@ -53,12 +53,10 @@ Previous HEAD position was 93861d3 Update s3 buckets
 Switched to a new branch 'develop'
 Branch 'develop' set up to track remote branch 'develop' from 'origin'.
 + git checkout -b master origin/master
-fatal: 'origin/master' is not a commit and a branch 'master' cannot be created from it
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] stage
 [Pipeline] { (Production)
-Stage "Production" skipped due to earlier failure(s)
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] stage
@@ -76,5 +74,4 @@ Clean env: delete dir
 [Pipeline] }
 [Pipeline] // node
 [Pipeline] End of Pipeline
-ERROR: script returned exit code 128
-Finished: FAILURE
+Finished: SUCCESS
