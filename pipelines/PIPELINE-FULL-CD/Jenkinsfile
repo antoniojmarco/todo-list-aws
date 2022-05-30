@@ -26,8 +26,10 @@ pipeline {
         }
         stage('Production'){
               steps{
-                
+                 
                 echo 'Starting production job'
+                build job: 'PIPELINE-FULL-PRODUCTION', parameters: [
+                string(name:'ENVIRONMENT', value: "production")]
                
             }
         }
